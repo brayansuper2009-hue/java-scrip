@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.2/font/bootstrap-icons.min.css">
+    <title>MENU </title>
+</head>
+<body>
+   
+<nav class="navbar fg-2 bg-primary">
+<div class="container-fluid">
+  <a class="navbar-brand" href="index.html">
+    <img src="img/firefly.jpg" alt="Logo" width="30"height="24" class="d-inline-block align-text-top">
+    PRACTIICA 1
+  </a>
+</div>
+</nav>
+
+<div class="container p-4">
+    <div class="row">
+        <div class="col">
+       <button class="btn-solid theme-danger" onclick="mensaje1()"><i class="bi bi-android2"></i> Boton 1</button>
+     <button class="btn-outline theme-primary" onclick="mensaje2()"><i class="bi bi-apple"></i> Boton 2</button>
+         <button class="btn-solid theme-accent" onclick="mensaje3()"><i class="bi bi-browser-chrome"></i> Boton 3</button>
+     <button class="btn-solid theme-success" onclick="mensaje4()"><i class="bi bi-discord"></i> Boton 4</button>
+    <button class="btn-outline theme-warning" onclick="mensaje5()"><i class="bi bi-whatsapp"></i></i> Boton 5</button>
+        </div>
+    
+     <div class="col">
+       <button class="btn-outline theme-info" onclick="mensaje6()"><i class="bi bi-twitter-x"></i> Boton 6</button>
+     <button class="btn-solid theme-inverser" onclick="mensaje7()"><i class="bi bi-apple-music"></i></i> Boton 7</button>
+         <button class="btn-text theme-inverse" onclick="mensaje8()"><i class="bi bi-amazon"></i></i> Boton 8</button>
+     <button class="btn-subtle theme-secondary" onclick="mensaje9()"><i class="bi bi-anthropic"></i></i> Boton 9</button>
+    <button class="btn-text theme-secondary" onclick="mensaje10()"><i class="bi bi-claude"></i>></i> Boton 10</button>
+        </div>
+</div>
+ </div>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/sweetalert2.all.min.js"></script>
+    <script>
+        function mensaje1() {
+            Swal.fire({
+                title: "Good job!",
+                text: "hola mundo",
+                icon: "success"
+            });
+        }
+    </script>
+
+    <script>
+        function mensaje2() {
+            Swal.fire("APPLE");
+        }
+    </script>
+
+<script>
+        function mensaje3() {
+            Swal.fire({
+  title: "que es ?",
+  text: "hola ?",
+  icon: "question"
+});
+        }
+    </script>
+
+<script>
+        function mensaje4() {
+    Swal.fire({
+  title: "Drag me!",
+  icon: "success",
+  draggable: true
+});
+ }
+    </script>
+
+
+
+<script>
+        function mensaje5() {
+   Swal.fire({
+  title: "<strong>HTML <u>example</u></strong>",
+  icon: "info",
+  html: `
+    You can use <b>bold text</b>,
+    <a href="#" autofocus>links</a>,
+    and other HTML tags
+  `,
+  showCloseButton: true,
+  showCancelButton: true,
+  focusConfirm: false,
+  confirmButtonText: `
+    👍 Great!
+  `,
+  confirmButtonAriaLabel: "Thumbs up, great!",
+  cancelButtonText: `
+    👎
+  `,
+  cancelButtonAriaLabel: "Thumbs down"
+});
+ }
+    </script>
+     <script>
+        function mensaje6() {
+           Swal.fire({
+  title: "Do you want to save the changes?",
+  showDenyButton: true,
+  showCancelButton: true,
+  confirmButtonText: "Save",
+  denyButtonText: `Don't save`
+}).then((result) => {
+  /* Read more about isConfirmed, isDenied below */
+  if (result.isConfirmed) Swal.fire("Saved!", "", "success");
+  else if (result.isDenied) Swal.fire("Changes are not saved", "", "info");
+});
+        }
+    </script>
+
+
+ <script>
+        function mensaje7() {
+            Swal.fire({
+  position: "top-end",
+  icon: "success",
+  title: "Your work has been saved",
+  showConfirmButton: false,
+  timer: 1500
+});
+           
+        }
+    </script>
+
+<script>
+        function mensaje8() {
+           Swal.fire({
+  title: "Are you sure?",
+  text: "You won't be able to revert this!",
+  icon: "warning",
+  showCancelButton: true,
+  confirmButtonColor: "#3085d6",
+  cancelButtonColor: "#d33",
+  confirmButtonText: "Yes, delete it!"
+}).then((result) => {
+  if (result.isConfirmed) Swal.fire({
+    title: "Deleted!",
+    text: "Your file has been deleted.",
+    icon: "success"
+  });
+});
+        }
+    </script>
+    <script>
+        function mensaje9() {
+           const swalWithBootstrapButtons = Swal.mixin({
+  customClass: {
+    confirmButton: "btn btn-success",
+    cancelButton: "btn btn-danger"
+  },
+  buttonsStyling: false
+});
+swalWithBootstrapButtons.fire({
+  title: "Are you sure?",
+  text: "You won't be able to revert this!",
+  icon: "warning",
+  showCancelButton: true,
+  confirmButtonText: "Yes, delete it!",
+  cancelButtonText: "No, cancel!",
+  reverseButtons: true
+}).then((result) => {
+  if (result.isConfirmed) swalWithBootstrapButtons.fire({
+    title: "Deleted!",
+    text: "Your file has been deleted.",
+    icon: "success"
+  });
+  else if (result.dismiss === Swal.DismissReason.cancel)
+ /* Read more about handling dismissals below */
+  swalWithBootstrapButtons.fire({
+    title: "Cancelled",
+    text: "Your imaginary file is safe :)",
+    icon: "error"
+  });
+});
+        }
+    </script>
+    <script>
+        function mensaje10() {
+           Swal.fire({
+  title: "Sweet!",
+  text: "Modal with a custom image.",
+  imageUrl: "firefly.jpg",
+  imageWidth: 400,
+  imageHeight: 200,
+  imageAlt: ""
+});
+        }
+    </script>
+    
+   
+</body>
+</html>
